@@ -23,7 +23,7 @@ variable "subnet_a_cidr" {
 }
 
 variable "subnet_b_cidr" {
-  description = "CIDR block para la Subred B"
+  description = "CIDR block para la Subred  B"
   type        = string
   default = "10.0.2.0/24"
 }
