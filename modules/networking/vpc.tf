@@ -33,9 +33,32 @@ resource "aws_subnet" "subnet_b" {
     Name = "subnet-b"
   }
 }
+############## VPC-DEV ##############
+resource "aws_vpc" "dev" {
+  cidr_block = var.vpc_cidr_dev
 
-############## Gateway ##############
+  tags = {
+    Name = var.vpc_dev
+  }
+}
 
+resource "aws_subnet" "subnet_dev" {
+  vpc_id                  = aws_vpc.dev.id
+  cidr_block              = var.subnet_dev_cidr
+  map_public_ip_on_launch = true
 
+  tags = {
+    Name = "subnet-a"
+  }
+}
 
+# ############# Subnet DEV ##############
+# resource "aws_subnet" "subnet_dev" {
+#   vpc_id                  = aws_vpc.dev.id
+#   cidr_block              = var.subnet_a_cidr
+#   map_public_ip_on_launch = true
 
+#   tags = {
+#     Name = "subnet-a"
+#   }
+# }
