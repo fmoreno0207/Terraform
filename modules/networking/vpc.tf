@@ -33,3 +33,9 @@ resource "aws_subnet" "subnet_b" {
     Name = "subnet-b"
   }
 }
+
+############## Gateway ##############
+
+
+
+
