@@ -10,11 +10,11 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-#variable "key_name" {
-#  description = "Nombre de la clave SSH"
-#  type        = string
-#  default     = "${path.module}/id_rsa.pub"
-#}
+variable "key_name" {
+  description = "Nombre de la clave SSH"
+  type        = string
+  default     = "../module/inctances/id_rsa.pub"
+}
 
 variable "instance_name" {
   description = "Nombre de la instancia EC2"

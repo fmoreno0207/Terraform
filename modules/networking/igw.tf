@@ -3,7 +3,15 @@ resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "mi-igw"
+    Name = "igw-defaul"
+  }
+}
+
+resource "aws_internet_gateway" "dev" {
+  vpc_id = aws_vpc.dev.id
+
+  tags = {
+    Name = "igw-dev"
   }
 }
 

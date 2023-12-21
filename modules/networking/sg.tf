@@ -1,4 +1,4 @@
-#Crea una nueva sg en la vpc
+#Crea una nueva sg en la vpc#Crea una nueva sg en la vpc
 # resource "aws_security_group" "main" {
 #   name        = "SG allow"
 #   description = "Access ssh "

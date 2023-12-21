@@ -23,16 +23,16 @@ resource "aws_subnet" "subnet_a" {
   }
 }
 
-############## Subnet B ##############
-resource "aws_subnet" "subnet_b" {
-  vpc_id                  = aws_vpc.main.id
-  cidr_block              = var.subnet_b_cidr
-  map_public_ip_on_launch = true
+# ############# Subnet B ##############
+# resource "aws_subnet" "subnet_b" {
+#   vpc_id                  = aws_vpc.main.id
+#   cidr_block              = var.subnet_b_cidr
+#   map_public_ip_on_launch = true
 
-  tags = {
-    Name = "subnet-b"
-  }
-}
+#   tags = {
+#     Name = "subnet-b"
+#   }
+# }
 ############## VPC-DEV ##############
 resource "aws_vpc" "dev" {
   cidr_block = var.vpc_cidr_dev
@@ -48,7 +48,7 @@ resource "aws_subnet" "subnet_dev" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "subnet-a"
+    Name = "subnet-dev"
   }
 }
 

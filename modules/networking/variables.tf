@@ -9,19 +9,16 @@ variable "vpc_name" {
   type        = string
   default = "mi-vpc"
 }
-
 variable "vpc_cidr" {
   description = "CIDR block para la VPC"
   type        = string
   default = "10.0.0.0/16"
 }
-
 variable "subnet_a_cidr" {
   description = "CIDR block para la Subred A"
   type        = string
   default = "10.0.1.0/24"
 }
-
 variable "subnet_b_cidr" {
   description = "CIDR block para la Subred  B"
   type        = string
@@ -34,17 +31,16 @@ variable "vpc_dev" {
   type        = string
   default = "vpc-dev"
 }
-
 variable "vpc_cidr_dev" {
   description = "CIDR block para la VPC-DEV"
   type        = string
-  default = "10.0.0.0/16"
+  default = "10.100.0.0/16"
 }
 
 variable "subnet_dev_cidr" {
   description = "CIDR block para la Subred DEV"
   type        = string
-  default = "10.0.1.0/24"
+  default = "10.100.1.0/24"
 }
 
 ##########################################################
