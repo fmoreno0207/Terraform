@@ -43,4 +43,10 @@ variable "subnet_dev_cidr" {
   default = "10.100.1.0/24"
 }
 
+variable "subnet_dev2_cidr" {
+  description = "CIDR block para la Subred DEV"
+  type        = string
+  default = "10.100.2.0/24"
+}
+
 ##########################################################
