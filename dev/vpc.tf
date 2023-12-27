@@ -9,7 +9,7 @@ module "networking" {
   private_subnet_cidr  = "10.0.2.0/24"
 }
 
- output "my_ec2_instance_info" {
+ output "ec2_instance_info" {
    value = {
      vpc_id            = module.networking.vpc_id
      public_subnet_id  = module.networking.public_subnet_id
