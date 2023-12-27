@@ -9,4 +9,7 @@ module "app_autoscaling" {
   min_size            = 1
   subnet_id          = [module.networking.public_subnet_id]
   tag_value           = "asg-instance"
+  vpc_id    = module.networking.vpc_id
+  security_group_name = "acces autoscaling"
+  sg_name = "sg acces autoscaling"
 }
