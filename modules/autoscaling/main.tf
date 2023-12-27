@@ -7,14 +7,21 @@ resource "aws_launch_configuration" "launch_config" {
   
   image_id = var.image_id
   instance_type = var.instance_type
-  security_groups = [aws_security_group.web_sg.id] 
-    user_data = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y nginx
-              service nginx start
-              chkconfig nginx on
-              EOF
+  security_groups = [aws_security_group.web_sg.id]
+
+   user_data = <<-EOF
+    #!/bin/bash
+    # Actualizar el sistema
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+
+    # Instalar Nginx
+    sudo apt-get install nginx -y
+
+    # Iniciar Nginx y esperar a que se complete la inicialización
+    sudo service nginx start
+    while ! nc -z localhost 80; do sleep 1; done
+  EOF
              
 }
 
@@ -38,6 +45,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   }
 }
 
+
 resource "aws_security_group" "web_sg" {
   name        = var.security_group_name
 #  description = var.security_group_description
@@ -48,6 +56,13 @@ resource "aws_security_group" "web_sg" {
   ingress {
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

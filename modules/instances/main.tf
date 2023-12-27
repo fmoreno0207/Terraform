@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "ec2" {
-  ami             = "ami-0fc5d935ebf8bc3bc" # ID de la AMI, debes cambiar esto
+  ami             = "ami-0c7217cdde317cfec" # ID de la AMI, debes cambiar esto
   instance_type   = "t2.micro" # Tipo de instancia, puedes cambiar esto
 
   vpc_security_group_ids = [aws_security_group.ec2.id]

@@ -32,3 +32,26 @@ resource "aws_subnet" "private" {
     Name = var.subnet_puvate_name
   }
 }
+
+#Crea un GW para salida a internet y asocia la vpc
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.main.id
+}
+
+#Crea una tabla de ruteo + la ruta por defecto
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+}
+
+#asocia la tabla de ruteo con la subnet public
+resource "aws_route_table_association" "public" {
+  subnet_id      = aws_subnet.public.id
+  route_table_id = aws_route_table.public.id
+}
+
+

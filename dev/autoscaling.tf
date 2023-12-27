@@ -2,7 +2,7 @@ module "app_autoscaling" {
   source              = "../modules/autoscaling"
   region              = "us-east-1"
   launch_config_name  = "launch_config"
-  image_id            = "ami-0fc5d935ebf8bc3bc"
+  image_id            = "ami-0c7217cdde317cfec"
   instance_type       = "t2.micro"
   desired_capacity    = 2
   max_size            = 3
