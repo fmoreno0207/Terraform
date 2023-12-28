@@ -11,5 +11,5 @@ module "app_autoscaling" {
   tag_value           = "asg-instance"
   vpc_id    = module.networking.vpc_id
   security_group_name = "acces autoscaling"
-  sg_name = "sg acces autoscaling"
+  sg_name = "sg acces autoscaling"  
 }

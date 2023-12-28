@@ -19,3 +19,4 @@ variable "sg_name" { }
  variable "vpc_id" {
   description = "ID de la VPC"
 }
+

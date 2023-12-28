@@ -15,13 +15,24 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_cidr
-  #availability_zone       = "us-east-1a" # Cambia esto según tu zona preferida
+  availability_zone       = "us-east-1a" # Cambia esto según tu zona preferida
   map_public_ip_on_launch = true
 
   tags = {
     Name = var.subnet_public_name
   }
 }
+
+# resource "aws_subnet" "public_b" {
+#   vpc_id                  = aws_vpc.main.id
+#   cidr_block              = var.public_subnet_cidr
+#   availability_zone       = "us-east-1b" # Cambia esto según tu zona preferida
+#   map_public_ip_on_launch = true
+
+#   tags = {
+#     Name = var.subnet_public_name_b
+#   }
+# }
 
 resource "aws_subnet" "private" {
   vpc_id                  = aws_vpc.main.id

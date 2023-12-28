@@ -5,8 +5,8 @@ module "networking" {
   subnet_public_name = "Subnet Publica"
   subnet_puvate_name = "Subnet Privada"
   vpc_cidr             = "10.0.0.0/16"
-  public_subnet_cidr   = "10.0.1.0/24"
-  private_subnet_cidr  = "10.0.2.0/24"
+  public_subnet_cidr   = "10.0.100.0/24"
+  private_subnet_cidr  = "10.0.3.0/24"
 #  sg_name = "security autoscaling"
 #  security_group_name = "acces autosacaling"
   vpc_id = module.networking.vpc_id 
