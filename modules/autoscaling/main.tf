@@ -35,7 +35,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
 
   launch_configuration = aws_launch_configuration.launch_config.id
 
-  vpc_zone_identifier = var.subnet_id
+  vpc_zone_identifier = var.subnet_id   # Se usa para asignar la subnet donde estara el elb
   
   tag {
     key                 = "Name"
@@ -44,7 +44,6 @@ resource "aws_autoscaling_group" "autoscaling_group" {
     
   }
 }
-
 
 resource "aws_security_group" "web_sg" {
   name        = var.security_group_name
@@ -78,3 +77,14 @@ resource "aws_security_group" "web_sg" {
     Name = var.sg_name
   }
 }
+
+# resource "aws_autoscaling_attachment" "attachment_lb" {
+#   autoscaling_group_name = aws_autoscaling_group.autoscaling_group.name
+#   alb_target_group_arns  = [aws_lb_target_group.lb_target_group.arn]
+# }
+
+#   resource "aws_autoscaling_attachment" "attachment_lb" {
+#     autoscaling_group_name = aws_autoscaling_group.autoscaling_group.name
+#     aws_lb_target_group_arn = 
+    
+# }

@@ -15,3 +15,13 @@ output "s3_bucket_info" {
     bucket_name = module.buckets.bucket_name
   }
 }
+
+# terraform {
+#   backend "s3" {
+#     bucket         = "bucket-dev31"
+#     key            = "dev/terraform.tfstate"
+#     region         = "ap-southeast-1"
+#     encrypt        = true
+#     dynamodb_table = "tabla-dynamodb"
+#   }
+# }
